@@ -43,7 +43,11 @@ public class OperacionController {
 		}
 		return a;
 	}
-
+	
+	/**
+	 * Este metodo se encarga de realizar la operacion segun el signo que venga en la cadena de texto
+	 * 
+	 * */
 	public static double operarSinPrecedencia(Invoker aInvoker, String texto) {
 
 		Command command;
