@@ -16,7 +16,7 @@ public class OperacionController {
 	static Operacion operacion;
 	static Command command;
 
-	public static boolean validarTamanioOperador(String texto) {
+	public  boolean validarTamanioOperador(String texto) {
 		Pattern p = Pattern.compile("[+-/*]");
 		Matcher m = p.matcher(texto);
 		if (!m.find()) {
@@ -28,7 +28,7 @@ public class OperacionController {
 		return true;
 	}
 
-	public static double[] obtenerOperandos(String texto, String simbolo) {
+	public  double[] obtenerOperandos(String texto, String simbolo) {
 
 		double[] a = new double[10];
 		if (texto != null) {
@@ -48,35 +48,37 @@ public class OperacionController {
 	 * Este metodo se encarga de realizar la operacion segun el signo que venga en la cadena de texto
 	 * 
 	 * */
-	public static double operarSinPrecedencia(Invoker aInvoker, String texto) {
+	public  double operarSinPrecedencia(Invoker aInvoker, String ecuacion) {
 
 		Command command;
-
-		if (texto.indexOf("+") != -1) {
-			double[] arreglo = obtenerOperandos(texto, "\\+");
+		if(operacion==null)
 			operacion = new Operacion();
-			command = new Suma(operacion);
-			aInvoker.setCommand(command);
+		
+			
+			
+			command = operacion.buscarOperacion("+");
+			double[] arreglo = obtenerOperandos(ecuacion, "\\+");
+		if(command!=null)
 			return command.ejecutar(arreglo[0], arreglo[1]);
-		}
+		
 
-		if (texto.indexOf("-") != -1) {
-			double[] arreglo = obtenerOperandos(texto, "\\-");
+		if (ecuacion.indexOf("-") != -1) {
+			
 			operacion = new Operacion();
 			command = new Resta(operacion);
 			aInvoker.setCommand(command);
 			return command.ejecutar(arreglo[0], arreglo[1]);
 
 		}
-		if (texto.indexOf("*") != -1) {
-			double[] arreglo = obtenerOperandos(texto, "\\*");
+		if (ecuacion.indexOf("*") != -1) {
+			 arreglo = obtenerOperandos(ecuacion, "\\*");
 			operacion = new Operacion();
 			command = new Multiplicacion(operacion);
 			aInvoker.setCommand(command);
 			return command.ejecutar(arreglo[0], arreglo[1]);
 		}
-		if (texto.indexOf("/") != -1) {
-			double[] arreglo = obtenerOperandos(texto, "\\/");
+		if (ecuacion.indexOf("/") != -1) {
+			 arreglo = obtenerOperandos(ecuacion, "\\/");
 			operacion = new Operacion();
 			command = new Division(operacion);
 			aInvoker.setCommand(command);
