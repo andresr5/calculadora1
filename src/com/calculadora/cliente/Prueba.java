@@ -45,25 +45,10 @@ public class Prueba {
 						System.out.println(numeros);
 						int contadormenosuno = i;
 						contadormenosuno--;
-						//System.out.println("CONTADOR -1 ASDASDASDASDASDASDASD");
-						//System.out.println(contadormenosuno);
-						//System.out.println("arreglo cadena - 1 ------>   "+ arregloCadena[contadormenosuno]);
-						/*
-						
-						if(arregloCadena[contadormenosuno]==')') {
-							System.out.println("It is in here ");
-							if((char)signos.peek()== '(') {
-								signos.pop();
-							}
-							for (int k = 0; k < arregloCadena.length; k++) {
-									 
-							}
-						}*/
-						
-						
+
 						signos.push(arregloCadena[i]);
 						System.out.println(" pila signos despues de agregar " + signos);
-						System.out.println("pila numeros "+numeros);
+						System.out.println("pila numeros " + numeros);
 
 					} else {
 						System.out.println(
@@ -72,12 +57,12 @@ public class Prueba {
 							System.out.println("tamaño 1 " + signos);
 							String signoPrioritario;
 							if (!numeros.isEmpty() && numeros.size() >= 2) {
-								
+
 								System.out.println("tamaño 2 " + signos);
 								System.out.println("pila numero " + numeros);
 								int op1 = (int) numeros.pop();
 								int op2 = (int) numeros.pop();
-								
+
 								OperacionController oC = new OperacionController();
 								signoPrioritario = String.valueOf(signos.peek());
 								System.out.println("{^^^^^operacion a realizar op2: " + op2 + " " + signoPrioritario
@@ -91,26 +76,26 @@ public class Prueba {
 									Integer resultadoInt = intresultado;
 									System.out.println("Resultado numero: " + resultadoInt);
 									int contadormenosuno = j;
-									if(contadormenosuno>0)
-									contadormenosuno--;
-									
-									if(arregloCadena[contadormenosuno]==')'){
-										if((char)signos.peek()== '(') {
+									if (contadormenosuno > 0)
+										contadormenosuno--;
+
+									if (arregloCadena[contadormenosuno] == ')') {
+										if ((char) signos.peek() == '(') {
 											signos.pop();
 										}
 									}
 									numeros.push(resultadoInt);
 								}
-								
+
 							}
 							// int numeroAOperar = (int) numeros.pop();
 
 						}
-						
-							signos.push(arregloCadena[i]);
-						
+
+						signos.push(arregloCadena[i]);
+
 						System.out.println("NUMEROS FINAL --->" + numeros);
-						System.out.println("SIGNOS FINAL ---->"+signos);
+						System.out.println("SIGNOS FINAL ---->" + signos);
 					}
 				}
 			}
