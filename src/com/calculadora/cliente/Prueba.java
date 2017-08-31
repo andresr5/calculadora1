@@ -44,15 +44,25 @@ public class Prueba {
 						System.out.println(" signos antes de agregar " + signos);
 						System.out.println(numeros);
 						int contadormenosuno = i;
-						contadormenosuno--;
 
+						if (contadormenosuno > 0) {
+							contadormenosuno--;
+						} else {
+							contadormenosuno = 0;
+						}
+
+						if (arregloCadena[contadormenosuno] == ')') {
+							if ((char) signos.peek() == '(') {
+								signos.pop();
+							}
+						}
 						signos.push(arregloCadena[i]);
 						System.out.println(" pila signos despues de agregar " + signos);
 						System.out.println("pila numeros " + numeros);
 
 					} else {
 						System.out.println(
-								"Entro cpm prioridad " + i + " para el signo " + a + " ante " + arregloCadena[i]);
+								"Entro con prioridad " + i + " para el signo " + a + " ante " + arregloCadena[i]);
 						for (int j = 0; j < signos.size(); j++) {
 							System.out.println("tamaño 1 " + signos);
 							String signoPrioritario;
@@ -75,24 +85,30 @@ public class Prueba {
 									String parse = String.valueOf(resultado);
 									Integer resultadoInt = intresultado;
 									System.out.println("Resultado numero: " + resultadoInt);
-									int contadormenosuno = j;
-									if (contadormenosuno > 0)
-										contadormenosuno--;
+									System.out.println("j " + i);
 
-									if (arregloCadena[contadormenosuno] == ')') {
-										if ((char) signos.peek() == '(') {
-											signos.pop();
-										}
-									}
 									numeros.push(resultadoInt);
 								}
-
+								
+								int contadormenosuno = i;
+								if (contadormenosuno > 0) {
+									contadormenosuno--;
+								} else {
+									contadormenosuno = 0;
+								}
+								System.out.println("aqui esta el char de la iteracion "+arregloCadena[i]+" aqui el menos uno "+ arregloCadena[contadormenosuno]);
+								if (arregloCadena[i] == ')') {
+									if ((char) signos.peek() == '(') {
+										signos.pop();
+									}
+								}
 							}
 							// int numeroAOperar = (int) numeros.pop();
 
 						}
-
+						if(arregloCadena[i]!=')') {
 						signos.push(arregloCadena[i]);
+						}
 
 						System.out.println("NUMEROS FINAL --->" + numeros);
 						System.out.println("SIGNOS FINAL ---->" + signos);
