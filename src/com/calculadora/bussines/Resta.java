@@ -4,15 +4,14 @@ import com.calculadora.services.Command;
 
 public class Resta implements Command{
 	
-	private Operacion operacion;
 	
-	public Resta(Operacion aOperacion){
-		this.operacion = aOperacion;
+	public Resta(){
+		
 	}
 	
 	@Override
 	public double ejecutar(double a, double b) {
-		return operacion.restar(a, b);
+		return a - b;
 		
 	}
 

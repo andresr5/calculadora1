@@ -2,19 +2,15 @@ package com.calculadora.bussines;
 
 import com.calculadora.services.Command;
 
-public class Division implements Command{
+public class Division implements Command {
 
-	public Operacion operacion;
-	
-	public Division(Operacion aOperacion){
-		this.operacion = aOperacion;
+	public Division() {
+
 	}
-	
+
 	@Override
 	public double ejecutar(double a, double b) {
-		return a/b;
+		return a / b;
 	}
-
-
 
 }

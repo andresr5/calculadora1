@@ -19,6 +19,10 @@ public class Cliente {
 			String lecturaTeclado = teclado.nextLine();
 			Invoker calculadoraFisica = new Invoker();
 			
+			char [] a = lecturaTeclado.toCharArray();
+			
+			
+			/*
 			if(OperacionController.validarTamanioOperador(lecturaTeclado)) {
 			double resultado = OperacionController.operarSinPrecedencia(calculadoraFisica, lecturaTeclado);
 			
